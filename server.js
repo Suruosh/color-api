@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error(err));
 
-// SCHEMA: Only storing hex
+//skima
 const Color = mongoose.model(
   "Color",
   new mongoose.Schema({
@@ -20,7 +20,7 @@ const Color = mongoose.model(
   })
 );
 
-// POST: add a color
+//post, add color
 app.post("/api/colors", async (req, res) => {
   const { hex } = req.body;
 
@@ -36,7 +36,7 @@ app.post("/api/colors", async (req, res) => {
   }
 });
 
-// GET: all colors
+//get, load all colors
 app.get("/api/colors", async (req, res) => {
   try {
     const colors = await Color.find();
@@ -46,7 +46,7 @@ app.get("/api/colors", async (req, res) => {
   }
 });
 
-// GET: 3 random colors
+//get: load 3 random colors
 app.get("/api/colors/random", async (req, res) => {
   try {
     const count = await Color.countDocuments();
@@ -54,6 +54,17 @@ app.get("/api/colors/random", async (req, res) => {
     
     const colors = await Color.aggregate([{ $sample: { size: 3 } }]);
     res.status(200).json(colors);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+//delete: remove a color by hex
+app.delete("/api/colors/:hex", async (req, res) => {
+  try {
+    const color = await Color.findOneAndDelete({ hex: req.params.hex });
+    if (!color) return res.status(404).json({ message: "Color not found" });
+    res.status(200).json({ message: "Color deleted", color });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
