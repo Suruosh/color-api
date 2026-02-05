@@ -4,6 +4,7 @@ A simple way to save fav colors.
 features:
 - adds a color to mangoo db
 - retrieves added colors from mango db
+- delete a color from mangoo db
 - gives status codes of 200, 201, 400, 404, and 500
 - a frontend paly ground is added to demonstrate visually. 
 
@@ -24,6 +25,7 @@ features:
 
 - GET /api/colors: List all saved colors.
         http://localhost:3000/api/colors
+- DELETE /api/colors/<a hex color, like #FF5733>
 - GET /api/colors/random: Get 3 random colors.
         http://localhost:3000/api/colors/random
 
