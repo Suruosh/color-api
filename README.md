@@ -2,10 +2,10 @@
 A simple way to save fav colors.
 
 features:
-adds a color to mangoo db
-retrieves added colors from mango db
-gives status codes of 200, 201, 400, 404, and 500
-+ a frontend paly ground is added to demonstrate visually. 
+- adds a color to mangoo db
+- retrieves added colors from mango db
+- gives status codes of 200, 201, 400, 404, and 500
+- a frontend paly ground is added to demonstrate visually. 
 
 # to run locally:
 - install the dependencies
