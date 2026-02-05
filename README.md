@@ -13,6 +13,10 @@ features:
 - Create a .env file in the root directory and add your MongoDB Atlas connection string
 - Open http://localhost:3000
 
+# to see live
+- uploaded to netlify safely (by hiding env file by Using netlify.toml)
+- live on netlify: https://agent-6984d692e2f4087885580553--hyper-color-api.netlify.app/
+
 
 # API eendpoints
 - POST /api/colors: Save a hex (e.g., {"hex": "#FF0000"})
